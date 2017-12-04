@@ -1,0 +1,43 @@
+Swagger JSON files can be found at the following URLs:
+
+Assignment (Cards, Sequences): https://api.skylight.upskill.io/v1/assignment/api
+
+Authentication (Users, Groups): https://api.skylight.upskill.io/v1/authentication/api
+
+Messaging: https://api.skylight.upskill.io/v1/messaging/api
+
+Calling: https://api.skylight.upskill.io/v1/calling/api
+
+The JSON from these URLs can be copied and pasted into the Swagger Editor (editor.swagger.io) to view the full API.
+
+
+
+
+For notifications, this is a temporary document that explains usage:
+
+The endpoint is /messaging/notifications (In the nodejs code example, it would be "skylight.apiPost('/messaging/notifications', msgData)")
+
+MsgData, or the body of the request, should be something like:
+
+ 
+{
+    "to":userId
+    , "alert": {
+        "type": 8,
+        "message": "This is a test message"
+    }
+}
+
+The integer in the "type" field can range from 0 to 10 (inclusive), with the following being the result of each type:
+
+0) Calling icon and sound, tap to dismiss
+1) Info icon, dismisses automatically
+2) Image icon, tap to dismiss
+3) Message icon, dismisses automatically
+4) Same as 3
+5) Checklist icon, tap to dismiss
+6) Alert icon, red background, tap to dismiss
+7) Check icon, tap to dismiss
+8) Message bubble icon, tap to dismiss
+9) Reticle icon, dismisses automatically
+10) No icon, dismisses automatically
